@@ -1,5 +1,18 @@
-# trabajo-practico-1-ssl-thiagocabrera
+UTN – Regional Buenos Aires  
+Sintaxis y Semántica de los Lenguajes
+Curso K 2006
+ 
+ 	 
+Trabajo Práctico N°1
+Tema: Reconocimiento de palabras con autómatas
 
+
+Nombre y Apellido: THIAGO MARTIN CABRERA LAVEZZI
+Email institucional: tcabreralavezzi@frba.utn.edu.ar
+Legajo: 175.868-8
+Profesora: Ing. ROXANA L. LEITUZ
+Fecha Presentación:  11/09/2021
+Calificación:
 Punto 1:
 
 Terminales:
@@ -11,6 +24,77 @@ H: conjunto que contiene las letras de la ‘a’ la ‘f’ en minúscula y may
 S: conjunto que contiene al ‘+’ y al ‘-’.
 x: la letra ‘x’.
 0: el número 0.
+
+Autómata:
+
+
+Tabla de transiciones:
+
+
+
+D
+S
+0
+Oct
+H
+x
+0-
+1
+2
+3
+1
+7
+7
+1+
+1
+7
+1
+1
+7
+7
+2
+1
+7
+7
+1
+7
+7
+3+
+7
+7
+4
+4
+7
+5
+4+
+7
+7
+4
+4
+7
+7
+5
+6
+7
+6
+6
+6
+7
+6+
+6
+7
+6
+6
+6
+7
+7(rechazo)
+7
+7
+7
+7
+7
+7
+
 
 Estrategia:
 
@@ -27,6 +111,49 @@ Punto 2:
 
 Antes de comenzar a explicar el algoritmo, debemos mencionar que no se nos ocurrió una manera de conectar el análisis de este ejercicio con el autómata anterior, ya que este último también reconoce palabras en octal y en hexadecimal, por lo que nos reconocería tipos de palabras que no queremos reconocer en este ejercicio.
 
+Autómata:
+
+Tabla de transiciones:
+
+
+
+D
+0
++
+-
+*
+0-
+1
+3
+2
+2
+4
+1+
+1
+1
+0
+0
+0
+2
+1
+4
+4
+4
+4
+3+
+4
+4
+0
+0
+0
+4(rechazo)
+4
+4
+4
+4
+4
+
+
 Estrategia:
 
 Las diferentes funciones de los ‘+’ y ‘-’.
@@ -39,5 +166,3 @@ Al final de la lectura de la cadena, se recorre el array de operaciones, utiliza
 Si quisiéramos calcular el resultado en tiempo de lectura, podríamos utilizar una variable flag que nos indique si la operación actual es suma o resta, para que cuando se termina de leer el término, opere con el anterior. Ambas soluciones funcionan.
 Detección de errores.
 Para la detección de errores, fuimos capaces de diferenciar errores léxicos de errores de caracteres no pertenecientes al alfabeto. Para el primer tipo, si el estado ‘e’ es el estado de rechazo (comprobado en tiempo de lectura) entonces hay un error léxico. Para el segundo, si la columna correspondiente al carácter es la columna 5, quiere decir que el carácter no es ninguno de los aceptados. En ambos casos mandamos un mensaje a la consola especificando el tipo de error y la posición en la cadena y directamente retornamos false, para así evitar seguir corriendo el programa innecesariamente.
-
-Link para ver la documentación completa: https://docs.google.com/document/d/1XM64iMwhQOtBfXxm1HS5JU2LhB1NkbV4x240zvf1Wg8/edit?usp=sharing
